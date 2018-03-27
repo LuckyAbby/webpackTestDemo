@@ -13,6 +13,11 @@ module.exports = {
         'style-loader',
         'css-loader'
       ]
+    }, {
+      test: /\.(jpg|png|jpeg)$/,
+      use: [
+        'file-loader'
+      ]
     }]
   }
 };
