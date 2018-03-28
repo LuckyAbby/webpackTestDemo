@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -29,6 +30,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'webpack test demo',  // 生成的 HTML 文件的标题
       filename: 'index.html' // 生成的 HTML 文件的文件名，默认 `index.html`
-    })
+    }),
+    new CleanWebpackPlugin(['dist'])
   ],
 };
