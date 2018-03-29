@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import component from './component.js';
 import imgComponent from './imgComponent.js';
 
