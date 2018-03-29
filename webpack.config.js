@@ -7,7 +7,6 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     index: './src/index.js',
-    component: './src/component.js',
     imgComponent: './src/imgComponent.js',
     common: [ // 第三方库可以统一放在这个入口一起合并
       'lodash'
@@ -15,6 +14,7 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
