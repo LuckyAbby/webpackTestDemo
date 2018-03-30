@@ -8,14 +8,20 @@ module.exports = {
   entry: {
     index: './src/index.js',
     imgComponent: './src/imgComponent.js',
-    common: [ // 第三方库可以统一放在这个入口一起合并
-      'lodash'
-    ]
+    // vendor: [ // 第三方库可以统一放在这个入口一起合并
+    //   'lodash'
+    // ]
   },
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  // webpack4 使用这个配置项拆分打包 需要升级 webpack到4
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    }
   },
   module: {
     rules: [{
@@ -38,7 +44,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(['dist']),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'common' // 抽取出的模块的模块名
+      name: 'vendor' // 抽取出的模块的模块名
     }),
   ],
 };
