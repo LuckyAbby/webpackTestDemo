@@ -21,7 +21,8 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
-    }
+    },
+    runtimeChunk: true
   },
   module: {
     rules: [{
@@ -43,8 +44,8 @@ module.exports = {
       filename: 'index.html' // 生成的 HTML 文件的文件名，默认 `index.html`
     }),
     new CleanWebpackPlugin(['dist']),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor' // 抽取出的模块的模块名
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vendor' // 抽取出的模块的模块名
+    // }),
   ],
 };
